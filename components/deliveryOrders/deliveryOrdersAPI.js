@@ -6,7 +6,7 @@ const DeliveryOrder = require('./deliveryOrder');
 const Restaurant = require('../restaurants/restaurant');
 const AppError = require('../AppError');
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   DeliveryOrder.find().then((deliveryOrders) => {
     res.status(200).json(deliveryOrders);
   }).catch((error) => {
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/:_id', (req, res) => {
+router.get('/:_id', (req, res, next) => {
 
   if (checkObjectId(req.params._id)) {
 
@@ -26,7 +26,6 @@ router.get('/:_id', (req, res) => {
     });
 
   } else {
-
     next(new AppError("Invalid ObjectId format", 400));
   }
 });
@@ -50,6 +49,7 @@ router.post('/', (req, res, next) => {
             res.status(200).json(eta);
 
           }).catch((error) => {
+            //most likely google api key not working
             next(new AppError(error.message, 500));
 
           });

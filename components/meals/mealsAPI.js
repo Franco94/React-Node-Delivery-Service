@@ -5,7 +5,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 const Meal = require('./meal');
 const AppError = require('../AppError');
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   Meal.find().then((meals) => {
     res.status(200).json(meals);
   }).catch((error) => {
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/:_id', (req, res) => {
+router.get('/:_id', (req, res, next) => {
 
   if (checkObjectId(req.params._id)) {
 
@@ -30,7 +30,7 @@ router.get('/:_id', (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
 
   let meal = new Meal(req.body);
 

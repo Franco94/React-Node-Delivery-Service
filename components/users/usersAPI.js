@@ -5,7 +5,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 const User = require('./user');
 const AppError = require('../AppError');
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   User.find().then((users) => {
     res.status(200).json(users);
   }).catch((error) => {
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/:_id', (req, res) => {
+router.get('/:_id', (req, res, next) => {
 
   if (checkObjectId(req.params._id)) {
 

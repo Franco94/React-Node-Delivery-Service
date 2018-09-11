@@ -21,6 +21,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+//set route to react build
 app.use(express.static(path.join(__dirname, 'delivery-service-client/build')));
 // configure app to use bodyParser()
 // Parsers for POST data
