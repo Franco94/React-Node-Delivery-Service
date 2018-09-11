@@ -23,11 +23,11 @@ Restaurant´s delivery service module demonstrating an implementation of a NodeJ
   c. `npm run build`
   d. `cd ..`
 
-3. Run local instance of MongoDB.
+3. Run local instance of MongoDB in your computer.
 
-4. Launch server with `npm run launch`. This will also automatically populate the Mongo database.
+4. Launch server with `npm run launch`. This will also automatically populate the Mongo database. Webpage and API at `http://localhost:8080/`.
 
-## Api
+## API
 * GET `api/` (test connection)
 
 * GET `api/deliveryOrders` (Get all delivery orders)
@@ -40,7 +40,7 @@ Restaurant´s delivery service module demonstrating an implementation of a NodeJ
 
 * GET `api/users` (Get all users)
 * GET `api/users/:_id` (Get user with `_id`)
-* POST `api/users` (Create a user))
+* POST `api/users` (Create a user)
 
 * GET `api/meals` (Get all meals)
 * GET `api/meals/:_id` (Get meal with `_id`)
