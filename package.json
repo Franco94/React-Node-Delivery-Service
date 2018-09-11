@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "launch": "SET NODE_ENV=dev&& SET DEBUG=restonode:* && npm start",
-    "test": "mocha"
+    "test": "mocha --timeout 10000 components/**/*.mocha.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

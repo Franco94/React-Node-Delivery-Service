@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+const config = require('config');
 const AppError = require('./components/AppError');
 
 let app = express();
@@ -38,9 +39,12 @@ app.get('*', (req, res, next) => {
 
 //error handler
 app.use((err, req, res, next) => {
-  console.log(err.message);
-  // Log error message in console
-  console.error(err.stack);
+
+  if (config.util.getEnv('NODE_ENV') !== "test") {
+    console.log(err.message);
+    // Log error message in console
+    console.error(err.stack);
+  }
   //HTTP requests response
   res.status(err.status).json({
     'errors': {

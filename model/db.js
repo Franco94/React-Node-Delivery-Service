@@ -1,7 +1,8 @@
-// Bring Mongoose into the app
+// bring Mongoose into the app
 const mongoose = require('mongoose');
 
 const config = require('config');
+//mockups
 const mealData = require('../mockdata/mealData.json');
 const restaurantData = require('../mockdata/restaurantData.json');
 

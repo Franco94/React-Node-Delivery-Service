@@ -10,8 +10,14 @@ const restaurantSchema = new Schema({
   },
 
   locationData: {
-    address: String,
-    latLng: String
+    address: {
+      type: String,
+      required: true
+    },
+    latLng: {
+      type: String,
+      required: true
+    }
   }
 });
 

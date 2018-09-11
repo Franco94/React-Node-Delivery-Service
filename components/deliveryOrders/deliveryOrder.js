@@ -10,12 +10,17 @@ const deliveryOrderSchema = new Schema({
   meals: [
     {
       name: {
-        type: String
+        type: String,
+        required: true
       },
       cost: {
-        type: Number
+        type: Number,
+        required: true
       },
-      quantity: Number
+      quantity: {
+        type: Number,
+        required: true
+      }
     }
 
   ],
@@ -32,8 +37,14 @@ const deliveryOrderSchema = new Schema({
 
   locationData: {
 
-    address: String,
-    latLng: String
+    address: {
+      type: String,
+      required: true
+    },
+    latLng: {
+      type: String,
+      required: true
+    }
   },
 
   user: {
