@@ -27,6 +27,10 @@ Restaurant´s delivery service module demonstrating an implementation of a NodeJ
 
 4. Launch server with `npm run launch`. This will also automatically populate the Mongo database. Webpage and API at `http://localhost:8080/`.
 
+## Tests
+
+Run API tests with `npm test`.
+
 ## API
 * GET `api/` (test connection)
 
