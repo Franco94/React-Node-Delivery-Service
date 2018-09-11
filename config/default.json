@@ -1,0 +1,4 @@
+{
+  "DBHost": "mongodb://localhost/restonode",
+ "GOOGLE_API_KEY":"AIzaSyA2KNCQJeYizQmTNT8D8k-4KPVCIFly0MY"
+}

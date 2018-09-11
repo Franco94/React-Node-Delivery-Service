@@ -1,0 +1,22 @@
+.card-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: #F0F0F0;
+  padding: 30px;
+  min-height: 20em;
+  margin-top: 2em;
+}
+
+.search {
+  margin-bottom: 2em;
+}
+
+.tag {
+  font-size: 14px;
+}
+
+.welcomeText {
+  margin-bottom: 2em;
+}

@@ -1,0 +1,62 @@
+﻿[
+  {
+    "name": "Burrito",
+    "cost": "10",
+    "img": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?cs=srgb&dl=burrito-chicken-close-up-461198.jpg&fm=jpg"
+  },
+  {
+    "name": "Pizza",
+    "cost": "20",
+    "img": "https://images.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg?cs=srgb&dl=cheese-delicious-dinner-2232.jpg&fm=jpg"
+  },
+  {
+    "name": "Sushi",
+    "cost": "30",
+    "img": "https://images.pexels.com/photos/357756/pexels-photo-357756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  {
+    "name": "Burger",
+    "cost": "20",
+    "img": "https://images.pexels.com/photos/1251198/pexels-photo-1251198.jpeg?cs=srgb&dl=beef-bread-breakfast-1251198.jpg&fm=jpg"
+  },
+  {
+    "name": "Pie",
+    "cost": "15",
+    "img": "https://images.pexels.com/photos/989704/pexels-photo-989704.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "name": "Pasta",
+    "cost": "12",
+    "img": "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  {
+    "name": "Rice",
+    "cost": "18",
+    "img": "https://images.pexels.com/photos/461326/pexels-photo-461326.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "name": "Salad",
+    "cost": "8",
+    "img": "https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "name": "Fish",
+    "cost": "16",
+    "img": "https://images.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg?auto=compress&cs=tinysrgb&h=350"
+  },
+  {
+    "name": "Meat",
+    "cost": "22",
+    "img": "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  {
+    "name": "Barbecue",
+    "cost": "25",
+    "img": "https://images.pexels.com/photos/533325/pexels-photo-533325.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  {
+    "name": "Cake",
+    "cost": "4",
+    "img": "https://images.pexels.com/photos/69817/france-confectionery-raspberry-cake-fruit-69817.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  }
+]

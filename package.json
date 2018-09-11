@@ -1,0 +1,20 @@
+{
+  "name": "restonode",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "launch": "SET NODE_ENV=dev&& SET DEBUG=restonode:* && npm start"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "config": "^2.0.1",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "google-distance-matrix": "^1.1.1",
+    "mongoose": "^5.2.13",
+    "morgan": "~1.9.0"
+  }
+}
