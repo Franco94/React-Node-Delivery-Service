@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "launch": "SET NODE_ENV=dev&& SET DEBUG=restonode:* && npm start",
-    "test": "mocha --timeout 10000 components/**/*.mocha.js"
+    "test-mocha": "mocha --timeout 10000 components/**/*.mocha.js",
+    "test-tape":"tape components/**/*.tape.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -19,8 +20,12 @@
     "morgan": "~1.9.0"
   },
   "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^10.0.0",
     "chai": "^4.1.2",
     "chai-http": "^4.2.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "supertest": "^3.3.0",
+    "tape": "^4.9.1"
   }
 }

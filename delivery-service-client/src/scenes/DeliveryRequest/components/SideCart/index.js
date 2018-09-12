@@ -25,6 +25,7 @@ class SideCart extends React.Component {
       </Col>
     </Row>);
   }
+
   render() {
     let meals = this.props.selectedMeals;
 

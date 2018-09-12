@@ -130,6 +130,7 @@ class DeliveryInfoForm extends React.Component {
       };
 
       const locationData = this.state.locationData;
+      //send back user info
       this.props.handleUser(user, locationData);
 
       form.resetFields();
