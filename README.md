@@ -29,7 +29,10 @@ Restaurant´s delivery service module demonstrating an implementation of a NodeJ
 
 ## Tests
 
-Run API tests with `npm test`.
+Run API tests.
+
+ a. Mocha-Chai with `npm run test-mocha`
+ b. Tape-Supertest with `npm run test-tape`.
 
 ## API
 * GET `api/` (test connection)
