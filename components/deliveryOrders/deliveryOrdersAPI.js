@@ -41,15 +41,15 @@ router.post('/', (req, res, next) => {
 
     deliveryOrder.save().then(() => {
 
-      //deliveryOrder.calculateEta(resto.locationData.latLng, deliveryOrder.locationData.latLng).then((eta) => {
+      deliveryOrder.calculateEta(resto.locationData.latLng, deliveryOrder.locationData.latLng).then((eta) => {
 
-      res.status(200).json("eta");
+        res.status(200).json("eta");
 
-      //  }).catch((error) => {
-      //most likely google api key not working
-      //    next(new AppError(error.message, 500));
+      }).catch((error) => {
+        //most likely google api key not working
+        next(new AppError(error.message, 500));
 
-      //});
+      });
 
     }).catch((error) => {
       next(new AppError("Invalid deliveryOrder format", 400));
