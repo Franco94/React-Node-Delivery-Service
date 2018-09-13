@@ -43,7 +43,7 @@ router.post('/', (req, res, next) => {
 
       deliveryOrder.calculateEta(resto.locationData.latLng, deliveryOrder.locationData.latLng).then((eta) => {
 
-        res.status(200).json("eta");
+        res.status(200).json(eta);
 
       }).catch((error) => {
         //most likely google api key not working
