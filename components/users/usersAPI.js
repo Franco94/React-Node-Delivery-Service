@@ -6,10 +6,11 @@ const User = require('./user');
 const AppError = require('../AppError');
 
 router.get('/', (req, res, next) => {
+
   User.find().then((users) => {
     res.status(200).json(users);
   }).catch((error) => {
-    next(new AppError("Not Found", 404));
+    next(new AppError("Error occurred while retrieving users", 500));
   });
 });
 
@@ -21,7 +22,7 @@ router.get('/:_id', (req, res, next) => {
       res.status(200).json(user);
 
     }).catch((error) => {
-      next(new AppError("Not Found", 404));
+      next(new AppError("Error occurred while retrieving user", 500));
     });
 
   } else {

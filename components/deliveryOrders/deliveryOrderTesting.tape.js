@@ -29,7 +29,7 @@ test('POST /deliveryOrder', (assert) => {
     let eta = res.body;
 
     assert.error(err, 'No error');
-    assert.equal(typeof eta, 'string', 'it should return an string');
+    assert.equal(typeof eta, 'string', 'it should return a string');
     assert.end();
   });
 });

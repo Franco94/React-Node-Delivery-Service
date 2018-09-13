@@ -6,10 +6,11 @@ const Meal = require('./meal');
 const AppError = require('../AppError');
 
 router.get('/', (req, res, next) => {
+
   Meal.find().then((meals) => {
     res.status(200).json(meals);
   }).catch((error) => {
-    next(new AppError("Not Found", 404));
+    next(new AppError("Error occurred while retrieving meals", 500));
   });
 });
 
@@ -21,7 +22,7 @@ router.get('/:_id', (req, res, next) => {
       res.status(200).json(meal);
 
     }).catch((error) => {
-      next(new AppError("Not Found", 404));
+      next(new AppError("Error occurred while retrieving meal", 500));
     });
 
   } else {

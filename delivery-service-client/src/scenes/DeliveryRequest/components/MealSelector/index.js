@@ -15,15 +15,16 @@ class MealSelector extends React.Component {
 
   render() {
     let tag;
-    let mealList;
+    let mealList = "No meals available...";
     let meals = this.props.meals;
     let filteredMeals = this.props.filteredMeals;
 
-    //render all meal cards
-    mealList = meals.map((meal) => {
-      return this.renderCard(meal);
-    });
-
+    if (meals.length > 0) {
+      //render all meal cards
+      mealList = meals.map((meal) => {
+        return this.renderCard(meal);
+      });
+    }
     if (filteredMeals.length > 0) {
       //there is a filter
       //create tag

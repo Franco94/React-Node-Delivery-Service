@@ -7,6 +7,7 @@ import SideCart from './components/SideCart';
 import DeliveryInfoForm from './components/DeliveryInfoForm';
 
 const {Header, Footer, Content, Sider} = Layout;
+const API = "/api";
 
 class DeliveryRequest extends React.Component {
 
@@ -25,13 +26,13 @@ class DeliveryRequest extends React.Component {
   componentDidMount() {
     //fetch initial data once the component mounts
 
-    fetch('/api/meals').then(res => res.json()).then(meals => {
+    fetch(API + '/meals').then(res => res.json()).then(meals => {
       this.setState({meals: meals})
     }).catch(error => {
       console.log(error);
     });
 
-    fetch('/api/restaurants').then(res => res.json()).then(restaurants => {
+    fetch(API + '/restaurants').then(res => res.json()).then(restaurants => {
       //get restoNode
       const restoNode = restaurants.find(resto => resto.name === "RestoNode");
       this.setState({restaurantId: restoNode._id})
@@ -49,7 +50,7 @@ class DeliveryRequest extends React.Component {
       const selected = selectedMeals.find(m => m._id === meal._id);
 
       if (selected) {
-        //if already exists
+        //if already in the cart
         selected.quantity++;
         this.setState({
           selectedMeals: selectedMeals,
@@ -58,7 +59,7 @@ class DeliveryRequest extends React.Component {
         });
 
       } else {
-        //first time selected
+        //first time selected, not in the cart
         this.setState({
           selectedMeals: selectedMeals.concat([
             {
@@ -94,6 +95,7 @@ class DeliveryRequest extends React.Component {
       //calculate previous totalcost
       const oldTotalCost = this.state.totalCost - (meal.cost * meal.quantity);
 
+      //get selected meal and update quantity
       const selectedMeals = this.state.selectedMeals.slice();
       const selected = selectedMeals.find(m => m._id === meal._id);
       selected.quantity = value;
@@ -107,12 +109,12 @@ class DeliveryRequest extends React.Component {
   }
 
   handleUser(user, locationData) {
-
+    //handle user request
     if (user && locationData) {
       //received all necessary user input
       this.toggleEta();
       //save the user info
-      fetch('/api/users', {
+      fetch(API + '/users', {
         method: 'POST',
         body: JSON.stringify({name: user.name, surname: user.surname, phone: user.phone}),
         headers: {
@@ -125,7 +127,7 @@ class DeliveryRequest extends React.Component {
         const restaurantId = this.state.restaurantId;
         const totalCost = this.state.totalCost;
         //save the order
-        fetch('/api/deliveryOrders', {
+        fetch(API + '/deliveryOrders', {
           method: 'POST',
           body: JSON.stringify({meals: meals, restaurant: restaurantId, totalCost: totalCost, locationData: locationData, user: newuser._id}),
           headers: {

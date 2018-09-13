@@ -1,16 +1,18 @@
 .side-content {
   margin-top: 6em;
   margin-left: 1.5em;
+  margin-bottom: 4em;
+  padding: 13px;
 }
 
 .confirm-button {
-  margin-top: 3em;
-  margin-left: 5em;
+  margin-top: 2.6em;
+  margin-left: 4em;
 }
 
 .title {
-  margin-left: 5.5em;
-  margin-bottom: 1em;
+  margin-left: 4.5em;
+  margin-bottom: 1.5em;
 }
 
 .foot {

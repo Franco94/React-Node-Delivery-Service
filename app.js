@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const config = require('config');
+//custom error
 const AppError = require('./components/AppError');
 
 let app = express();
@@ -22,8 +23,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+
 //set route to react build
 app.use(express.static(path.join(__dirname, 'delivery-service-client/build')));
+
 // configure app to use bodyParser()
 // Parsers for POST data
 app.use(bodyParser.json());

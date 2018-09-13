@@ -7,10 +7,11 @@ const Restaurant = require('../restaurants/restaurant');
 const AppError = require('../AppError');
 
 router.get('/', (req, res, next) => {
+
   DeliveryOrder.find().then((deliveryOrders) => {
     res.status(200).json(deliveryOrders);
   }).catch((error) => {
-    next(new AppError("Not Found", 404));
+    next(new AppError("Error occurred while retrieving orders", 500));
   });
 });
 
@@ -22,7 +23,7 @@ router.get('/:_id', (req, res, next) => {
       res.status(200).json(deliveryOrder);
 
     }).catch((error) => {
-      next(new AppError("Not Found", 404));
+      next(new AppError("Error occurred while retrieving order", 500));
     });
 
   } else {
@@ -34,43 +35,54 @@ router.post('/', (req, res, next) => {
 
   const restoId = req.body.restaurant;
 
-  if (checkObjectId(restoId)) {
+  getRestaurant(restoId).then((resto) => {
 
-    Restaurant.findById(restoId).then((resto) => {
+    let deliveryOrder = new DeliveryOrder(req.body);
 
-      if (resto) {
+    deliveryOrder.save().then(() => {
 
-        let deliveryOrder = new DeliveryOrder(req.body);
+      //deliveryOrder.calculateEta(resto.locationData.latLng, deliveryOrder.locationData.latLng).then((eta) => {
 
-        deliveryOrder.save().then(() => {
+      res.status(200).json("eta");
 
-          deliveryOrder.calculateEta(resto.locationData.latLng, deliveryOrder.locationData.latLng).then((eta) => {
+      //  }).catch((error) => {
+      //most likely google api key not working
+      //    next(new AppError(error.message, 500));
 
-            res.status(200).json(eta);
+      //});
 
-          }).catch((error) => {
-            //most likely google api key not working
-            next(new AppError(error.message, 500));
-
-          });
-
-        }).catch((error) => {
-          next(new AppError("Invalid deliveryOrder format", 400));
-
-        });
-
-      } else {
-        next(new AppError("Restaurant with id " + restoId + " does not exist", 404));
-
-      }
     }).catch((error) => {
-      next(new AppError("Restaurant Not Found", 404));
+      next(new AppError("Invalid deliveryOrder format", 400));
+
     });
+  }).catch((error) => {
+    //getRestaurant failed
+    next(error);
+  });
+});
 
-  } else {
-    next(new AppError("Invalid ObjectId format", 400));
-  }
+const getRestaurant = ((restoId) => {
 
+  // return new pending promise
+  return new Promise((resolve, reject) => {
+
+    if (checkObjectId(restoId)) {
+
+      Restaurant.findById(restoId).then((resto) => {
+
+        if (resto) {
+          resolve(resto);
+
+        } else {
+          reject(new AppError("Restaurant with id " + restoId + " does not exist", 404));
+        }
+      }).catch((error) => {
+        reject(new AppError("Error occurred while retrieving restaurant", 500));
+      });
+    } else {
+      reject(new AppError("Invalid ObjectId format", 400));
+    }
+  });
 });
 
 // verifies correct format of object id

@@ -7,13 +7,13 @@ class SideCart extends React.Component {
   renderItem(meal) {
 
     return (<Row gutter={16} key={meal._id} className="item">
-      <Col span={5}>
+      <Col span={3}>
         <Icon className="dynamic-delete-button" type="minus-circle-o" onClick={() => this.props.onDelete(meal)}/>
       </Col>
-      <Col span={5}>
+      <Col span={7}>
         {meal.name}
       </Col>
-      <Col span={5}>
+      <Col span={4}>
         ${meal.cost}
       </Col>
       <Col span={5}>
@@ -36,14 +36,13 @@ class SideCart extends React.Component {
 
     let totalCost = '';
     if (this.props.totalCost > 0) {
-      totalCost = 'Total: $' + this.props.totalCost;
+      totalCost = <div className="totalCost">Total: $ {this.props.totalCost}
+      </div>
     }
 
     return (<div className="bar">
       {mealList}
-      <div className="totalCost">
-        {totalCost}
-      </div>
+      {totalCost}
     </div>);
   }
 }

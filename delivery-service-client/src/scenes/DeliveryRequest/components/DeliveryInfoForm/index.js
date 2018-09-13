@@ -38,12 +38,12 @@ const CollectionCreateForm = Form.create()(class extends React.Component {
 
       <Form layout="vertical">
         <FormItem>
-          <h4>Where do we send your order to?</h4>
+          <h3>Where do we send your order to?</h3>
           <LocationSearchInput handleUserLocation={(locationData) => this.props.handleUserLocation(locationData)}></LocationSearchInput>
         </FormItem>
         <hr></hr>
         <br></br>
-        <h4>Now, please add your contact information.</h4>
+        <h3>Now, please add your contact information.</h3>
         <br></br>
         <FormItem label="Name">
           {

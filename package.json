@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "launch": "SET NODE_ENV=dev&& SET DEBUG=restonode:* && npm start",
     "test-mocha": "mocha --timeout 10000 components/**/*.mocha.js",
-    "test-tape":"tape components/**/*.tape.js"
+    "test-tape":"tape --timeout 10000 components/**/*.tape.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

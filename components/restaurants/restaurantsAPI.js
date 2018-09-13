@@ -6,10 +6,11 @@ const Restaurant = require('./restaurant');
 const AppError = require('../AppError');
 
 router.get('/', (req, res, next) => {
+
   Restaurant.find().then((restaurants) => {
     res.status(200).json(restaurants);
   }).catch((error) => {
-    next(new AppError("Not Found", 404));
+    next(new AppError("Error occurred while retrieving restaurants", 500));
   });
 });
 
@@ -21,7 +22,7 @@ router.get('/:_id', (req, res, next) => {
       res.status(200).json(restaurant);
 
     }).catch((error) => {
-      next(new AppError("Not Found", 404));
+      next(new AppError("Error occurred while retrieving restaurant", 500));
     });
 
   } else {

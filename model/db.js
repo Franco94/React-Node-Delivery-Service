@@ -37,21 +37,21 @@ const loadDatabase = (() => {
 
   // clear all existing documents from the collections
   // and populate the collections from json data
+  Restaurant.deleteMany().then(() => {
+
+    for (let i = 0; i < restaurantData.length; i++) {
+      new Restaurant(restaurantData[i]).save();
+    }
+  }).catch((error) => {
+    next(error);
+  });
+
   Meal.deleteMany().then(() => {
 
     for (let i = 0; i < mealData.length; i++) {
       new Meal(mealData[i]).save();
     }
 
-  }).catch((error) => {
-    next(error);
-  });
-
-  Restaurant.deleteMany().then(() => {
-
-    for (let i = 0; i < restaurantData.length; i++) {
-      new Restaurant(restaurantData[i]).save();
-    }
   }).catch((error) => {
     next(error);
   });

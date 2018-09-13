@@ -1,3 +1,13 @@
 .collection-create-form_last-form-item {
   margin-bottom: 0;
 }
+
+.ant-form {
+  font: 14px "Century Gothic", Futura, sans-serif !important;
+  color: rgba(0, 0, 0, 0.85) !important;
+}
+
+.ant-form-item {
+  font: 14px "Century Gothic", Futura, sans-serif !important;
+  color: rgba(0, 0, 0, 0.85) !important;
+}
