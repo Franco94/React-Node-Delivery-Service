@@ -88,7 +88,7 @@ const CollectionCreateForm = Form.create()(class extends React.Component {
                   message: 'Please input your phone number!'
                 }
               ]
-            })(<Input disabled={this.props.formDisabled} type="number" addonBefore={prefixSelector} style={{
+            })(<Input disabled={this.props.formDisabled} type="string" addonBefore={prefixSelector} style={{
                 width: '100%'
               }}/>)
           }

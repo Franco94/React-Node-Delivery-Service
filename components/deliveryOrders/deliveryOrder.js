@@ -54,6 +54,12 @@ const deliveryOrderSchema = new Schema({
   }
 });
 
+/**
+ * Calculates estimated time of arrival to a location from another.
+ * @param {string} origin lat,Lng coordinates of the starting location.
+ * @param {string} destination lat,Lng coordinates of the end location.
+ * @returns {string} The estimated time of arrival to destination from origin.
+ */
 deliveryOrderSchema.methods.calculateEta = ((origin, destination) => {
 
   const origins = [origin];
